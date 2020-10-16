@@ -18,37 +18,15 @@ class bridge{
     vector<pair<int, int>> routTable;
     map<int, int> routMap;
 
-    void dropPorts(){
-        cout<<"B"<<id+1<<": ";
-        map<int, string>::iterator itr;
-        for(itr=portmap.begin(); itr!=portmap.end(); ++itr){
-            cout<<char('A'+itr->first)<<"-"<<itr->second<<" ";
-        }
-        cout<<endl;
-    }
+    void dropPorts();
 
-    void dropTable(){
-        cout<<"B"<<id+1<<":"<<endl;
-        cout<<"HOST ID | FORWARDING PORT"<<endl;
-        sort(routTable.begin(), routTable.end());
-        for(int i=0; i<routTable.size();  i++){
-            cout<<"H"<<routTable[i].first<<" | "<<char(routTable[i].second+'A')<<endl;
-        }
-    }
+    void dropTable();
 
-    void addPort(char P){
-        portDef.push_back(P);
-        ports+=1;
-    }
+    void addPort(char P);
 
-    void addRoute(int H, int P){
-        routTable.push_back(make_pair(H, P));
-        routMap[H]=P;
-    }
+    void addRoute(int H, int P);
 
-    int DestPort(int H){
-        return routMap[H];
-    }
+    int DestPort(int H);
 
     
 };
